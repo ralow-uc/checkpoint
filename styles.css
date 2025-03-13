@@ -156,12 +156,12 @@ header a {
 
 .games-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
 .game-card {
-  width: 180px;
+  width: auto;
   background-color: var(--bg-header);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -201,7 +201,7 @@ header a {
 }
 
 .game-card p {
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem;
   color: var(--text-alt);
   font-size: 0.9rem;
 }
