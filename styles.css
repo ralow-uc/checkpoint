@@ -225,3 +225,7 @@ header a {
   color: var(--accent-color);
   font-weight: 700;
 }
+
+.form-container {
+  max-width: 600px;
+}
