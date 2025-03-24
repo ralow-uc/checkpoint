@@ -21,43 +21,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const limpiarError = (input) => {
             input.classList.remove("is-invalid");
-            input.nextElementSibling.textContent = "";
         };
 
-        limpiarError(document.getElementById("nombreUsuario"));
-        limpiarError(document.getElementById("correo"));
-        limpiarError(document.getElementById("clave"));
-        limpiarError(document.getElementById("confirmarClave"));
+        // Validaciones nombre y usuario
+        !nombreCompleto ? mostrarError(document.getElementById("nombreCompleto"), "El nombre completo es obligatorio.") : limpiarError(document.getElementById("nombreCompleto"));
+        !nombreUsuario ? mostrarError(document.getElementById("nombreUsuario"), "El nombre de usuario es obligatorio.") : limpiarError(document.getElementById("nombreUsuario"));
 
-        if (nombreUsuario.length < 3) {
-            mostrarError(document.getElementById("nombreUsuario"), "El nombre de usuario debe tener al menos 3 caracteres.");
-        }
-        
-        if (!correo.includes("@")) {
-            mostrarError(document.getElementById("correo"), "Ingrese un correo electrónico válido.");
+        // Validación del correo
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        emailRegex.test(correo) ? limpiarError(document.getElementById("correo")) : mostrarError(document.getElementById("correo"), "Ingrese un correo válido.");
+
+        // Validación de la contraseña
+        let tieneNumero = false;
+        let tieneMayuscula = false;
+
+        for (let i = 0; i < clave.length; i++) {
+            let char = clave[i];
+            if (!isNaN(char * 1)) tieneNumero = true;
+            if (char === char.toUpperCase() && isNaN(char)) tieneMayuscula = true;
         }
 
-        if (clave.length < 6) {
-            mostrarError(document.getElementById("clave"), "La contraseña debe tener al menos 6 caracteres.");
+        if (clave.length < 6 || clave.length > 18 || !tieneNumero || !tieneMayuscula) {
+            mostrarError(document.getElementById("clave"), "Debe tener entre 6 y 18 caracteres, incluir una mayúscula y un número.");
+        } else {
+            limpiarError(document.getElementById("clave"));
         }
 
-        if (clave !== confirmarClave) {
-            mostrarError(document.getElementById("confirmarClave"), "Las contraseñas no coinciden.");
+        // Validación de coincidencia de contraseñas
+        clave === confirmarClave ? limpiarError(document.getElementById("confirmarClave")) : mostrarError(document.getElementById("confirmarClave"), "Las contraseñas deben coincidir.");
+
+        // Validación de edad mínima (13 años)
+        if (fechaNacimiento) {
+            let fechaNacimientoObj = new Date(fechaNacimiento);
+            let hoy = new Date();
+            let edad = hoy.getFullYear() - fechaNacimientoObj.getFullYear();
+            let mesDiferencia = hoy.getMonth() - fechaNacimientoObj.getMonth();
+            let diaDiferencia = hoy.getDate() - fechaNacimientoObj.getDate();
+
+            if (edad < 13 || (edad === 13 && mesDiferencia < 0) || (edad === 13 && mesDiferencia === 0 && diaDiferencia < 0)) {
+                mostrarError(document.getElementById("fechaNacimiento"), "Debes tener al menos 13 años para registrarte.");
+            } else {
+                limpiarError(document.getElementById("fechaNacimiento"));
+            }
+        } else {
+            mostrarError(document.getElementById("fechaNacimiento"), "La fecha de nacimiento es obligatoria.");
         }
 
         if (valid) {
-            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-            if (usuarios.some(u => u.nombreUsuario === nombreUsuario)) {
-                mostrarError(document.getElementById("nombreUsuario"), "El nombre de usuario ya está en uso.");
-                return;
-            }
-            
-            const nuevoUsuario = { nombreCompleto, nombreUsuario, correo, clave, fechaNacimiento };
-            usuarios.push(nuevoUsuario);
-            localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-            alert("Registro exitoso. Ahora puedes iniciar sesión.");
-            window.location.href = "login.html";
+            alert("Formulario enviado con éxito! 🎉");
+            form.reset();
         }
     });
 });
