@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let usuarioActual = localStorage.getItem("usuarioActual");
     if (usuarioActual) {
         loginLink.textContent = usuarioActual;
-        loginLink.href = "#";
+        loginLink.href = "ver_perfil.html";
         logoutBtn.style.display = "inline-block";
     }
 
