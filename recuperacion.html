@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperación y Edición de Datos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    
+    <!-- Vista de Recuperación de Contraseña -->
+    <div id="recuperacion" class="bg-white p-6 rounded-lg shadow-md w-96">
+        <h2 class="text-xl font-semibold mb-4">Recuperar Contraseña</h2>
+        <p class="text-gray-600 text-sm mb-4">Ingresa tu correo para recibir un enlace de recuperación.</p>
+        <input type="email" placeholder="Correo electrónico" class="w-full px-4 py-2 border rounded-lg mb-4">
+        <button class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Enviar Enlace</button>
+        <p class="text-sm text-center mt-4"><a href="#" onclick="mostrarEdicion()" class="text-blue-500">Ir a edición de datos</a></p>
+    </div>
+    
+    <!-- Vista de Edición de Datos (oculta por defecto) -->
+    <div id="edicion" class="hidden bg-white p-6 rounded-lg shadow-md w-96">
+        <h2 class="text-xl font-semibold mb-4">Editar Datos</h2>
+        <input type="text" placeholder="Nombre" class="w-full px-4 py-2 border rounded-lg mb-2">
+        <input type="email" placeholder="Correo" class="w-full px-4 py-2 border rounded-lg mb-2">
+        <input type="password" placeholder="Nueva Contraseña" class="w-full px-4 py-2 border rounded-lg mb-2">
+        <button class="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Guardar Cambios</button>
+        <p class="text-sm text-center mt-4"><a href="#" onclick="mostrarRecuperacion()" class="text-blue-500">Volver a recuperación</a></p>
+    </div>
+    
+    <script>
+        function mostrarEdicion() {
+            document.getElementById('recuperacion').classList.add('hidden');
+            document.getElementById('edicion').classList.remove('hidden');
+        }
+        function mostrarRecuperacion() {
+            document.getElementById('edicion').classList.add('hidden');
+            document.getElementById('recuperacion').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (usuarioEncontrado) {
                 localStorage.setItem("usuarioActual", usuarioEncontrado.nombreUsuario);
-                window.location.href = "index.html";
+                window.location.href = "recuperacion.html";
             } else {
                 alert("Usuario o contraseña incorrectos.");
             }
