@@ -29,8 +29,16 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="index.html">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="index.html">Categorías</a>
+            <li class="nav-item" id="categorias">
+              <a class="nav-link text-white" href="#" id="categorias-btn">Categorías</a>
+              <div id="categorias-lista" class="dropdown-menu" style="display: none;">
+                <a class="dropdown-item" href="accion.html">Acción</a>
+                <a class="dropdown-item" href="rpg.html">RPG</a>
+                <a class="dropdown-item" href="deportes.html">Deportes</a>
+                <a class="dropdown-item" href="lucha.html">Lucha</a>
+                <a class="dropdown-item" href="shooters.html">Shooters</a>
+                <a class="dropdown-item" href="plataformas.html">Plataformas</a>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="formulario.html"
@@ -126,6 +134,7 @@
       <p>© 2025 Checkpoint. Todos los derechos reservados.</p>
     </footer>
     <script src="js/sesion.js"></script>
+    <script src="js/listarCategorias.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

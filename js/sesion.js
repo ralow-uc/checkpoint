@@ -1,19 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let username = localStorage.getItem("usuarioActual");
-  let loginLink = document.getElementById("login-link");
-  let logoutBtn = document.getElementById("logout-btn");
+  const loginLink = document.getElementById("login-link");
+  const logoutBtn = document.getElementById("logout-btn");
 
-  if (username) {
-    loginLink.textContent = username;
-    loginLink.href = "#";
+  let usuarioActual = localStorage.getItem("usuarioActual");
+  if (usuarioActual) {
+    loginLink.textContent = usuarioActual;
+    loginLink.href = "ver_perfil.html";
     logoutBtn.style.display = "inline-block";
-  } else {
-    loginLink.textContent = "Iniciar Sesión";
-    loginLink.href = "login.html";
   }
 
-  logoutBtn.addEventListener("click", function () {
-    localStorage.removeItem("usuarioActual");
-    window.location.href = "index.html";
-  });
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("usuarioActual");
+      window.location.href = "index.html";
+    });
+  }
 });

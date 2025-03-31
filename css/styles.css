@@ -228,3 +228,19 @@ header a {
 .form-container {
   max-width: 600px;
 }
+
+.banner-videojuegos {
+  background-image: url('https://images.unsplash.com/photo-1482855549413-2a6c9b1955a7');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.banner-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  color: var(--text-main);
+}
