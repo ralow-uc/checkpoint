@@ -1,9 +1,9 @@
 :root {
-  --bg-body: #5774cb;
+  --bg-body: #121212;
   --text-main: #ffffff;
   --bg-header: #1f1f1f;
   --border-color: #2c2c2c;
-  --accent-color: #e3e7eb;
+  --accent-color: #0077ff;
   --text-alt: #ccc;
   --text-footer: #cccccc;
 }

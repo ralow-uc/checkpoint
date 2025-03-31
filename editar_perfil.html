@@ -1,140 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Editar Perfil</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body class="bg-dark text-white">
-  <header class="bg-dark py-3">
-    <div class="container d-flex justify-content-between align-items-center">
-      <a href="index.html" class="text-white text-decoration-none d-flex align-items-center">
-        <h1 class="m-0 me-2">Checkpoint</h1>
-        <img src="https://cdn-icons-png.flaticon.com/512/5188/5188014.png" alt="logo" width="40" />
-      </a>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="formulario.html">Registrarse</a>
-          </li>
-          <li class="nav-item">
-            <a id="login-link" class="nav-link text-white" href="login.html">Iniciar Sesión</a>
-          </li>
-          <li class="nav-item">
-            <button id="logout-btn" class="btn btn-danger" style="display: none">Cerrar Sesión</button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Perfil</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-dark text-white">
+    <header class="bg-dark py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a
+          href="index.html"
+          class="text-white text-decoration-none d-flex align-items-center"
+        >
+          <h1 class="m-0 me-2">Checkpoint</h1>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/5188/5188014.png"
+            alt="logo"
+            width="40"
+          />
+        </a>
+        <nav>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item" id="categorias">
+              <a class="nav-link text-white" href="#" id="categorias-btn"
+                >Categorías</a
+              >
+              <div
+                id="categorias-lista"
+                class="dropdown-menu"
+                style="display: none"
+              >
+                <a class="dropdown-item" href="accion.html">Acción</a>
+                <a class="dropdown-item" href="rpg.html">RPG</a>
+                <a class="dropdown-item" href="deportes.html">Deportes</a>
+                <a class="dropdown-item" href="lucha.html">Lucha</a>
+                <a class="dropdown-item" href="shooters.html">Shooters</a>
+                <a class="dropdown-item" href="plataformas.html">Plataformas</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="formulario.html"
+                >Registrarse</a
+              >
+            </li>
+            <li class="nav-item">
+              <a id="login-link" class="nav-link text-white" href="login.html"
+                >Iniciar Sesión</a
+              >
+            </li>
+            <li class="nav-item">
+              <button
+                id="logout-btn"
+                class="btn btn-danger"
+                style="display: none"
+              >
+                Cerrar Sesión
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container mt-5 d-flex justify-content-center">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-      <h2 class="text-center mb-4">Editar Perfil</h2>
-      <form id="editarPerfilForm" class="bg-secondary p-4 rounded shadow">
-        <div class="mb-3">
-          <label for="nombreCompleto" class="form-label">Nombre Completo</label>
-          <input type="text" class="form-control" id="nombreCompleto" required />
-        </div>
-        <div class="mb-3">
-          <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
-          <input type="text" class="form-control" id="nombreUsuario" required />
-        </div>
-        <div class="mb-3">
-          <label for="clave" class="form-label">Nueva Contraseña</label>
-          <input type="password" class="form-control" id="clave" />
-          <div class="form-text text-light">
-            Mínimo 6 y máximo 18 caracteres, al menos una mayúscula y un número.
+    <main class="container mt-5 d-flex justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+        <h2 class="text-center mb-4">Editar Perfil</h2>
+        <form id="editarPerfilForm" class="bg-secondary p-4 rounded shadow">
+          <div class="mb-3">
+            <label for="nombreCompleto" class="form-label"
+              >Nombre Completo</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="nombreCompleto"
+              required
+            />
           </div>
-        </div>
-        <div class="mb-3">
-          <label for="confirmarClave" class="form-label">Confirmar Contraseña</label>
-          <input type="password" class="form-control" id="confirmarClave" />
-        </div>
-        <button type="submit" class="btn btn-light w-100">Guardar Cambios</button>
-      </form>
-    </div>
-  </main>
+          <div class="mb-3">
+            <label for="nombreUsuario" class="form-label"
+              >Nombre de Usuario</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="nombreUsuario"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="clave" class="form-label">Nueva Contraseña</label>
+            <input type="password" class="form-control" id="clave" />
+            <div class="form-text text-light">
+              Mínimo 6 y máximo 18 caracteres, al menos una mayúscula y un
+              número.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="confirmarClave" class="form-label"
+              >Confirmar Contraseña</label
+            >
+            <input type="password" class="form-control" id="confirmarClave" />
+          </div>
+          <button type="submit" class="btn btn-light w-100">
+            Guardar Cambios
+          </button>
+        </form>
+      </div>
+    </main>
 
-  <footer class="footer bg-dark text-white text-center py-3 mt-auto">
-    <p>© 2025 Checkpoint. Todos los derechos reservados.</p>
-  </footer>
+    <footer class="footer bg-dark text-white text-center py-3 mt-auto">
+      <p>© 2025 Checkpoint. Todos los derechos reservados.</p>
+    </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const usuarioActual = localStorage.getItem("usuarioActual");
-      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-      const form = document.getElementById("editarPerfilForm");
-
-      if (!usuarioActual) {
-        alert("Debes iniciar sesión para editar tu perfil.");
-        window.location.href = "login.html";
-        return;
-      }
-
-      const usuario = usuarios.find(u => u.nombreUsuario === usuarioActual);
-      if (!usuario) {
-        alert("Usuario no encontrado.");
-        return;
-      }
-
-      document.getElementById("nombreCompleto").value = usuario.nombreCompleto;
-      document.getElementById("nombreUsuario").value = usuario.nombreUsuario;
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const nuevoNombreCompleto = document.getElementById("nombreCompleto").value.trim();
-        const nuevoNombreUsuario = document.getElementById("nombreUsuario").value.trim();
-        const nuevaClave = document.getElementById("clave").value;
-        const confirmarClave = document.getElementById("confirmarClave").value;
-
-        if (nuevaClave) {
-          let tieneNumero = /\d/.test(nuevaClave);
-          let tieneMayuscula = /[A-Z]/.test(nuevaClave);
-
-          if (nuevaClave.length < 6 || nuevaClave.length > 18 || !tieneNumero || !tieneMayuscula) {
-            alert("La contraseña debe tener entre 6 y 18 caracteres, incluir una mayúscula y un número.");
-            return;
-          }
-
-          if (nuevaClave !== confirmarClave) {
-            alert("Las contraseñas no coinciden.");
-            return;
-          }
-        }
-
-        const nombreExistente = usuarios.find(u => u.nombreUsuario === nuevoNombreUsuario && u.nombreUsuario !== usuarioActual);
-        if (nombreExistente) {
-          alert("El nombre de usuario ya está en uso.");
-          return;
-        }
-
-        usuario.nombreCompleto = nuevoNombreCompleto;
-        usuario.nombreUsuario = nuevoNombreUsuario;
-        if (nuevaClave) {
-          usuario.clave = nuevaClave;
-        }
-
-        const index = usuarios.findIndex(u => u.nombreUsuario === usuarioActual);
-        usuarios[index] = usuario;
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-        localStorage.setItem("usuarioActual", nuevoNombreUsuario);
-
-        alert("Datos actualizados correctamente.");
-        window.location.href = "index.html";
-      });
-    });
-  </script>
-  <script src="js/sesion.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="js/editar_perfil.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
