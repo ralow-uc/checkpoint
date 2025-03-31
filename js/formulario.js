@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const clave = document.getElementById("clave").value;
     const confirmarClave = document.getElementById("confirmarClave").value;
     const fechaNacimiento = document.getElementById("fechaNacimiento").value;
+    const direccion = document.getElementById("direccion").value.trim();
 
     const mostrarError = (input, mensaje) => {
       input.classList.add("is-invalid");
@@ -123,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
           correo: correo,
           clave: clave,
           fechaNacimiento: fechaNacimiento,
+          direccion: direccion,
         };
 
         usuarios.push(nuevoUsuario);
