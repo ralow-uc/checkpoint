@@ -29,9 +29,17 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="index.html">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="index.html">Categorías</a>
-            </li>
+            <li class="nav-item" id="categorias">
+  <a class="nav-link text-white" href="#" id="categorias-btn">Categorías</a>
+  <div id="categorias-lista" class="dropdown-menu" style="display: none;">
+    <a class="dropdown-item" href="accion.html">Acción</a>
+    <a class="dropdown-item" href="rpg.html">RPG</a>
+    <a class="dropdown-item" href="deportes.html">Deportes</a>
+    <a class="dropdown-item" href="lucha.html">Lucha</a>
+    <a class="dropdown-item" href="shooters.html">Shooters</a>
+    <a class="dropdown-item" href="plataformas.html">Plataformas</a>
+  </div>
+</li>
             <li class="nav-item">
               <a class="nav-link text-white" href="formulario.html"
                 >Registrarse</a
@@ -65,7 +73,7 @@
         >
           <div class="image-wrapper">
             <img
-              src="https://www.mundodeportivo.com/alfabeta/hero/2024/12/captura.1735632986.4464.png?width=768&aspect_ratio=16:9&format=nowebp"
+              src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2017/12/mejores-juegos-accion-aventura-2018.jpg?tf=3840x"
               alt="Acción"
             />
             <h3 class="category-title">Acción</h3>
@@ -137,7 +145,7 @@
     <footer class="footer">
       <p>© 2025 Checkpoint. Todos los derechos reservados.</p>
     </footer>
-
+    <script src="js/listar_categorias.js"></script>
     <script src="js/sesion.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
